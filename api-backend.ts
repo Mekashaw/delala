@@ -3,7 +3,7 @@ import path from "path";
 import fs from "fs";
 import { initializeApp } from "firebase/app";
 import { getFirestore, collection, getDocs, setDoc, doc, deleteDoc } from "firebase/firestore";
-import { STATIC_LISTINGS } from "./src/data";
+import { STATIC_LISTINGS } from "./data";
 import { Listing } from "./src/types";
 
 const api = express();
