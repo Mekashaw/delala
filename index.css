@@ -1,0 +1,88 @@
+@import url('https://fonts.googleapis.com/css2?family=Abyssinica+SIL&family=Plus+Jakarta+Sans:wght@300;450;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap');
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "Plus Jakarta Sans", "Abyssinica SIL", "Segoe UI", system-ui, -apple-system, sans-serif;
+  --font-mono: "JetBrains Mono", monospace;
+  
+  --color-natural-bg: #F4F6F9;
+  --color-natural-accent: #2563EB;
+  --color-natural-dark: #1E3A8A;
+  --color-natural-light: #EFF6FF;
+}
+
+/* Custom design components from Blue Gradient and Dim White background theme */
+.card-hover {
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  border: 1px solid rgba(37, 99, 235, 0.15);
+  background-color: #FFFFFF;
+}
+
+.card-hover:hover {
+  transform: translateY(-4px);
+  border-color: rgba(37, 99, 235, 0.3);
+  box-shadow: 0 20px 40px rgba(30, 58, 138, 0.08);
+}
+
+.soft-shadow {
+  box-shadow: 0 12px 30px rgba(30, 58, 138, 0.04);
+}
+
+body {
+  background-color: #F4F6F9;
+}
+
+/* Helper Class Overrides for Hardcoded Legacy Accent Colors */
+.text-\[\#8B4513\] {
+  color: var(--color-natural-dark) !important;
+}
+.text-\[\#C19A6B\] {
+  color: var(--color-natural-accent) !important;
+}
+.bg-\[\#8B4513\] {
+  background-color: var(--color-natural-dark) !important;
+}
+.bg-\[\#C19A6B\] {
+  background-color: var(--color-natural-accent) !important;
+}
+.border-\[\#8B4513\] {
+  border-color: var(--color-natural-dark) !important;
+}
+.border-\[\#C19A6B\] {
+  border-color: var(--color-natural-accent) !important;
+}
+.from-\[\#8B4513\] {
+  --tw-gradient-from: var(--color-natural-dark) !important;
+  --tw-gradient-to: var(--color-natural-accent) !important;
+  --tw-gradient-stops: var(--tw-gradient-from), var(--tw-gradient-to) !important;
+}
+.to-\[\#C19A6B\] {
+  --tw-gradient-to: var(--color-natural-accent) !important;
+}
+.from-\[\#C19A6B\] {
+  --tw-gradient-from: var(--color-natural-accent) !important;
+  --tw-gradient-to: var(--color-natural-dark) !important;
+  --tw-gradient-stops: var(--tw-gradient-from), var(--tw-gradient-to) !important;
+}
+.to-\[\#8B4513\] {
+  --tw-gradient-to: var(--color-natural-dark) !important;
+}
+.from-\[\#556B2F\] {
+  --tw-gradient-from: #1E3A8A !important;
+}
+
+@keyframes wordFade {
+  from {
+    opacity: 0;
+    transform: translateY(1px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-word-fade {
+  animation: wordFade 0.18s ease-out forwards;
+}
+

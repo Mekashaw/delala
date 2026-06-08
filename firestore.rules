@@ -1,0 +1,44 @@
+rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+    // 1. Global Default Deny Safety Net
+    match /{document=**} {
+      allow read, write: if false;
+    }
+
+    // Helper functions for common validations
+    function isValidId(id) {
+      return id is string && id.size() <= 128;
+    }
+
+    // 2. Listings collection
+    match /listings/{listingId} {
+      allow read: if true;
+      allow create, update: if isValidId(listingId) &&
+        request.resource.data.id is string &&
+        request.resource.data.category in ['house', 'car', 'servant'];
+      allow delete: if true;
+    }
+
+    // 3. User Requests collection
+    match /requests/{requestId} {
+      allow read, write: if true;
+    }
+
+    // 4. Chat messages collection
+    match /chats/{chatId} {
+      allow read, write: if true;
+    }
+
+    // 5. Transaction announcements collection
+    match /announcements/{announcementId} {
+      allow read: if true;
+      allow write: if true;
+    }
+
+    // 6. Registered user profiles for device sync
+    match /users/{userEmail} {
+      allow read, write: if true;
+    }
+  }
+}

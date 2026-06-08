@@ -1,0 +1,264 @@
+{
+  "entities": {
+    "listing": {
+      "title": "Listing",
+      "description": "Representing a property, car, or service staffing listing",
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "category": {
+          "type": "string",
+          "enum": [
+            "house",
+            "car",
+            "servant"
+          ]
+        },
+        "subCategory": {
+          "type": "string"
+        },
+        "titleAm": {
+          "type": "string"
+        },
+        "titleEn": {
+          "type": "string"
+        },
+        "descriptionAm": {
+          "type": "string"
+        },
+        "descriptionEn": {
+          "type": "string"
+        },
+        "price": {
+          "type": "number"
+        },
+        "priceType": {
+          "type": "string",
+          "enum": [
+            "rent",
+            "sale",
+            "salary_monthly",
+            "salary_negotiable"
+          ]
+        },
+        "locationAm": {
+          "type": "string"
+        },
+        "locationEn": {
+          "type": "string"
+        },
+        "image": {
+          "type": "string"
+        },
+        "images": {
+          "type": "array"
+        },
+        "phone": {
+          "type": "string"
+        },
+        "specifications": {
+          "type": "array"
+        },
+        "dateAdded": {
+          "type": "string"
+        },
+        "isFeatured": {
+          "type": "boolean"
+        },
+        "status": {
+          "type": "string",
+          "enum": [
+            "pending",
+            "approved",
+            "rejected",
+            "rented",
+            "sold",
+            "hired"
+          ]
+        }
+      },
+      "required": [
+        "id",
+        "category",
+        "subCategory",
+        "titleAm",
+        "titleEn",
+        "descriptionAm",
+        "descriptionEn",
+        "locationAm",
+        "locationEn",
+        "image",
+        "phone"
+      ]
+    },
+    "chat": {
+      "title": "Chat Message",
+      "description": "Representing an administrative or customer direct messaging chat bubble",
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "senderId": {
+          "type": "string"
+        },
+        "senderName": {
+          "type": "string"
+        },
+        "receiverId": {
+          "type": "string"
+        },
+        "text": {
+          "type": "string"
+        },
+        "timestamp": {
+          "type": "string"
+        },
+        "read": {
+          "type": "boolean"
+        }
+      },
+      "required": [
+        "id",
+        "senderId",
+        "senderName",
+        "receiverId",
+        "text",
+        "timestamp"
+      ]
+    },
+    "announcement": {
+      "title": "Announcement",
+      "description": "Representing a historic deal transacted to showcase active stats",
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "textAm": {
+          "type": "string"
+        },
+        "textEn": {
+          "type": "string"
+        },
+        "timestamp": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "id",
+        "textAm",
+        "textEn",
+        "timestamp"
+      ]
+    },
+    "request": {
+      "title": "User Request",
+      "description": "Representing a custom customer finding request or order",
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "name": {
+          "type": "string"
+        },
+        "phone": {
+          "type": "string"
+        },
+        "requestType": {
+          "type": "string",
+          "enum": [
+            "house",
+            "car",
+            "servant"
+          ]
+        },
+        "subCategory": {
+          "type": "string"
+        },
+        "details": {
+          "type": "string"
+        },
+        "status": {
+          "type": "string",
+          "enum": [
+            "pending",
+            "reviewed",
+            "resolved"
+          ]
+        },
+        "createdAt": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "id",
+        "name",
+        "phone",
+        "requestType",
+        "subCategory",
+        "details",
+        "status",
+        "createdAt"
+      ]
+    },
+    "user": {
+      "title": "User Account",
+      "description": "Representing an authenticated buyer, seller, or admin coordinator",
+      "type": "object",
+      "properties": {
+        "email": {
+          "type": "string"
+        },
+        "password": {
+          "type": "string"
+        },
+        "name": {
+          "type": "string"
+        },
+        "phone": {
+          "type": "string"
+        },
+        "role": {
+          "type": "string",
+          "enum": [
+            "admin",
+            "user"
+          ]
+        }
+      },
+      "required": [
+        "email",
+        "password",
+        "name",
+        "phone",
+        "role"
+      ]
+    }
+  },
+  "firestore": {
+    "/listings/{listingId}": {
+      "schema": "listing",
+      "description": "Interactive system, pending, and published property listings"
+    },
+    "/chats/{chatId}": {
+      "schema": "chat",
+      "description": "Administrative support channels for dealing listings"
+    },
+    "/announcements/{announcementId}": {
+      "schema": "announcement",
+      "description": "Broadcast banners celebrating live transactional closures"
+    },
+    "/requests/{requestId}": {
+      "schema": "request",
+      "description": "Active matching demands posted by various customers"
+    },
+    "/users/{userEmail}": {
+      "schema": "user",
+      "description": "Synchronized user profiles used safely matching deal parameters"
+    }
+  }
+}

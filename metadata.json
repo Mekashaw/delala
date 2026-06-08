@@ -1,0 +1,6 @@
+{
+  "name": "ደላላው (Delalaw)",
+  "description": "Ethiopia's premier broker platform for renting, buying, and selling Houses, Cars, and hiring domestic or hospitality workers.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
