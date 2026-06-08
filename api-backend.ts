@@ -4,7 +4,7 @@ import fs from "fs";
 import { initializeApp } from "firebase/app";
 import { getFirestore, collection, getDocs, setDoc, doc, deleteDoc } from "firebase/firestore";
 import { STATIC_LISTINGS } from "./data";
-import { Listing } from "./src/types";
+import { Listing } from "./types";
 
 const api = express();
 
