@@ -2,6 +2,17 @@ import express from "express";
 import path from "path";
 import { createServer as createViteServer } from "vite";
 import { apiMiddleware } from "./api-backend";
+import path from 'path';
+
+// ... ከExpress ሰርቨርህ Setup በታች ...
+
+// 1. Vite build ሲያደርግ የሚወጣውን 'dist' ፎልደር static እንዲሆን ማድረግ
+app.use(express.static(path.join(__dirname, 'dist')));
+
+// 2. ማንኛውም ጥያቄ ሲመጣ የReact ን index.html እንዲከፍት ማድረግ
+app.get('*', (req, res) => {
+  res.sendFile(path.join(__dirname, 'dist', 'index.html'));
+});
 
 async function startServer() {
   const app = express();
