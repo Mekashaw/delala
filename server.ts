@@ -9,17 +9,24 @@ import path from 'path';
 // 1. Vite build ሲያደርግ የሚወጣውን 'dist' ፎልደር static እንዲሆን ማድረግ
 app.use(express.static(path.join(__dirname, 'dist')));
 
-// 2. ማንኛውም ጥያቄ ሲመጣ የReact ን index.html እንዲከፍት ማድረግ
+// 1. መጀመሪያ የ API ማገናኛዎችን (Middleware) መጫን
+app.use(apiMiddleware);
+
+// 2. Vite build ሲያደርግ የሚወጣውን 'dist' ፎልደር static እንዲሆን ማድረግ
+app.use(express.static(path.join(__dirname, 'dist')));
+
+// 3. ማንኛውም ሌላ ጥያቄ ሲመጣ የReact ን index.html እንዲከፍት ማድረግ
 app.get('*', (req, res) => {
   res.sendFile(path.join(__dirname, 'dist', 'index.html'));
 });
 
-async function startServer() {
-  const app = express();
-  const PORT = 3000;
+// 4. ሰርቨሩን ለማስነሳት መዘጋጀት (የፖርት ቁጥር)
+const PORT = process.env.PORT || 10000;
 
-  // Mount modular API middleware
-  app.use(apiMiddleware);
+// 5. ሰርቨሩን በ listen ማነሳሳት (ይህ ሁልጊዜ መጨረሻ ላይ ነው የሚሆነው)
+app.listen(PORT, '0.0.0.0', () => {
+  console.log(`Server is running on port ${PORT}`);
+});
 
   // Vite development middleware vs Static Production delivery
   if (process.env.NODE_ENV !== "production") {
