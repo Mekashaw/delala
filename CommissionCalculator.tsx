@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { Calculator, HelpCircle, Info, Check, Percent, BadgeAlert } from 'lucide-react';
-import { AMHARIC_TRANSLATIONS, ENGLISH_TRANSLATIONS } from '../data';
+import { AMHARIC_TRANSLATIONS, ENGLISH_TRANSLATIONS } from './data';
 
 interface CommissionCalculatorProps {
   isAmharic: boolean;
