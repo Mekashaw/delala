@@ -7,13 +7,13 @@ const app = express();
 // 1. መጀመሪያ የ API ማገናኛዎችን (Middleware) መጫን
 app.use(apiMiddleware);
 
-// 2. Vite build ሲያደርግ የሚሰጠውን 'dist' የተባለ static ማህደር ማጋራት
-// ማሳሰቢያ፦ በ .cjs ውስጥ __dirname በቀጥታ ይሠራል፣ ስለዚህ ያለምንም እንክብካቤ መጠቀም ይቻላል።
-app.use(express.static(path.join(__dirname, 'dist')));
+// 2. Vite build ያደረገውን static ፋይል ማጋራት
+// ማሳሰቢያ፦ .cjs ፋይሉ ራሱ ያለው dist ውስጥ ስለሆነ __dirname ብቻውን በቂ ነው
+app.use(express.static(__dirname));
 
 // 3. ማንኛውም ሌላ ጥያቄ ሲመጣ የ React ን index.html እንዲያይ ማድረግ
 app.get('*', (req, res) => {
-  res.sendFile(path.join(__dirname, 'dist', 'index.html'));
+  res.sendFile(path.join(__dirname, 'index.html'));
 });
 
 // 4. ሰርቨሩን ለማስነሳት መዘጋጀት (የፖርት ቁጥር)
