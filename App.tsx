@@ -1,15 +1,15 @@
 import React, { useState, useMemo, useEffect } from 'react';
-import Header from './components/Header';
-import HeroCategoryButtons from './components/HeroCategoryButtons';
-import ListingCard from './components/ListingCard';
-import BrokerOrderForm from './components/BrokerOrderForm';
-import CommissionCalculator from './components/CommissionCalculator';
-import AuthHub from './components/AuthHub';
+import Header from "./Header";
+import HeroCategoryButtons from './HeroCategoryButtons';
+import ListingCard from './ListingCard';
+import BrokerOrderForm from './BrokerOrderForm';
+import CommissionCalculator from './CommissionCalculator';
+import AuthHub from './AuthHub';
 import { STATIC_LISTINGS, AMHARIC_TRANSLATIONS, ENGLISH_TRANSLATIONS } from './data';
 import { Listing, CategoryType } from './types';
-import { Search, RotateCcw, Phone, MessageSquare, Compass, SlidersHorizontal, BookOpen, AlertCircle, X, Check, ArrowRight, MapPin, ChevronLeft, ChevronRight } from 'lucide-react';
-
+import { Search, RotateCcw, Phone, MessageSquare, Compass, SlidersHorizontal, BookOpen, AlertCircle, X, Check, ArrowRight, MapPin, ChevronLeft, ChevronRight, User, Plus, LogOut, Trash2 } from 'lucide-react';
 export default function App() {
+  
   const [isAmharic, setIsAmharic] = useState(true);
   const [activeSection, setActiveSection] = useState<'home' | 'listings' | 'request' | 'auth'>('home');
   const [selectedCategory, setSelectedCategory] = useState<CategoryType | 'all'>('all');
