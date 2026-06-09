@@ -1,6 +1,6 @@
 import React from 'react';
 import { Home, Briefcase, Car, User, ShieldCheck, Languages, Handshake } from 'lucide-react';
-import { AMHARIC_TRANSLATIONS, ENGLISH_TRANSLATIONS } from '../data';
+import { AMHARIC_TRANSLATIONS, ENGLISH_TRANSLATIONS } from './data';
 import Logo from './Logo';
 
 interface HeaderProps {
