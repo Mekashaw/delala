@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { MapPin, Phone, Calendar, Info, Check, MessageSquare, Crosshair } from 'lucide-react';
 import { Listing } from '../types';
-import { AMHARIC_TRANSLATIONS, ENGLISH_TRANSLATIONS } from '../data';
+import { AMHARIC_TRANSLATIONS, ENGLISH_TRANSLATIONS } from './data';
 
 interface ListingCardProps {
   key?: string;
