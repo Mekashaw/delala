@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Sparkles, Send, CheckCircle2, User, Phone, Tag, ClipboardList, HelpCircle } from 'lucide-react';
 import { UserRequest, CategoryType } from '../types';
-import { AMHARIC_TRANSLATIONS, ENGLISH_TRANSLATIONS } from '../data';
+import { AMHARIC_TRANSLATIONS, ENGLISH_TRANSLATIONS } from './data';
 
 interface BrokerOrderFormProps {
   isAmharic: boolean;
