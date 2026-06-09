@@ -1,6 +1,6 @@
 import React from 'react';
 import { Home, Car, UserCheck, Key, ShoppingCart, Sparkles, Shield, User, Landmark, Beer, ChevronRight, AlertCircle } from 'lucide-react';
-import { AMHARIC_TRANSLATIONS, ENGLISH_TRANSLATIONS } from '../data';
+import { AMHARIC_TRANSLATIONS, ENGLISH_TRANSLATIONS } from './data';
 import { CategoryType } from '../types';
 
 interface HeroCategoryButtonsProps {
