@@ -1,18 +1,14 @@
 import express from 'express';
 import path from 'path';
-import { fileURLToPath } from 'url';
 import { apiMiddleware } from './api-backend.js';
 
 const app = express();
-
-// የ __dirname ዝግጅት (ES Modules ስለሆነ)
-const __filename = fileURLToPath(import.meta.url);
-const __dirname = path.dirname(__filename);
 
 // 1. መጀመሪያ የ API ማገናኛዎችን (Middleware) መጫን
 app.use(apiMiddleware);
 
 // 2. Vite build ሲያደርግ የሚሰጠውን 'dist' የተባለ static ማህደር ማጋራት
+// ማሳሰቢያ፦ በ .cjs ውስጥ __dirname በቀጥታ ይሠራል፣ ስለዚህ ያለምንም እንክብካቤ መጠቀም ይቻላል።
 app.use(express.static(path.join(__dirname, 'dist')));
 
 // 3. ማንኛውም ሌላ ጥያቄ ሲመጣ የ React ን index.html እንዲያይ ማድረግ
